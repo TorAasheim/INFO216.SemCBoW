@@ -15,5 +15,19 @@ public class Main {
         System.out.println(yr.getWindSpeedName());
         System.out.println();
         System.out.println(yr.getWindSpeedValue());
+        System.out.println();
+        System.out.println(yr.getTimeTag());
+        System.out.println(yr.getNametag());
+        System.out.println(
+        );
+        System.out.println(yr.getIdList());
+        System.out.println(yr.getPeriodTag());
+        System.out.println(yr.getFromtag());
+
+        YrModel model = new YrModel();
+        model.createModel();
+        model.writeToFile();
+
+
     }
 }
