@@ -7,5 +7,13 @@ public class Main {
         yr.makeSymbolList();
 
         System.out.println(yr.getTemprature());
+        System.out.println();
+        System.out.println(yr.getDateTime());
+        System.out.println();
+        System.out.println(yr.getNametag());
+        System.out.println();
+        System.out.println(yr.getWindSpeedName());
+        System.out.println();
+        System.out.println(yr.getWindSpeedValue());
     }
 }

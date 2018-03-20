@@ -30,6 +30,7 @@ public class Yr {
     private ArrayList<String> fromtag = new ArrayList<String>();
     private ArrayList<Integer> periodTag = new ArrayList<Integer>();
     private ArrayList<String> windSpeedName = new ArrayList<String>();
+    private ArrayList<String> windSpeedValue = new ArrayList<>();
     private ArrayList<String> temprature = new ArrayList<String>();
     private ArrayList<Integer> idList = new ArrayList<Integer>();
     private ArrayList<String> timeTag = new ArrayList<>();
@@ -94,6 +95,12 @@ public class Yr {
             Node tempNode = eElement.getElementsByTagName("temperature").item(0);
             Element tempElement = (Element) tempNode;
 
+            Node windNode = eElement.getElementsByTagName("windSpeed").item(0);
+            Element windElement = (Element) windNode;
+
+            Node windSpeedNode = eElement.getElementsByTagName("windSpeed").item(0);
+            Element windspeedElement = (Element) windSpeedNode;
+
             Node times = eElement.getElementsByTagName("time").item(0);
             Element timeElement = (Element) times;
 
@@ -101,6 +108,8 @@ public class Yr {
             fromtag.add(StringUtils.left(eElement.getAttribute("from"), 10));
             periodTag.add(Integer.parseInt(eElement.getAttribute("period")));
             temprature.add(tempElement.getAttribute("value"));
+            windSpeedName.add(windElement.getAttribute("name"));
+            windSpeedValue.add(windspeedElement.getAttribute("mps"));
             idList.add(1+i);
 
 
@@ -230,5 +239,9 @@ public class Yr {
 
     public ArrayList<String> getTimeTag() {
         return timeTag;
+    }
+
+    public ArrayList<String> getWindSpeedValue() {
+        return windSpeedValue;
     }
 }
