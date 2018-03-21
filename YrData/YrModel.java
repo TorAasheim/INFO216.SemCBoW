@@ -24,7 +24,8 @@ public class YrModel {
     private ArrayList<String> windSpeedName = yr.getWindSpeedName();
     private ArrayList<String> weatherName = yr.getNametag();
     private ArrayList<String> date = yr.getFromtag();
-    // Brukes kun for å hente størrelsen på lsiten
+    private ArrayList<String> observedAt = yr.getObservedTag();
+    // Brukes kun for å hente størrelsen på listen
     private ArrayList<Integer> idList = yr.getIdList();
     int size = idList.size();
     // brukes kun for å sortere ut tidspunkt
@@ -43,7 +44,7 @@ public class YrModel {
         Property tempProperty = model.createProperty(ontoURI + "Temperature");
         Property windSpeedProperty = model.createProperty(ontoURI + "Wind");
         Property windSpeedValueProperty = model.createProperty(ontoURI + "hasWind");
-        Property windDirectionProperty = model.createProperty(ontoURI + "hasDirection");
+        Property observedAtProperty = model.createProperty(ontoURI + "hasObservationTime");
         Property dateProperty = model.createProperty(ontoURI + "hasObservationTime");
 
         Resource weatherResource = model.createResource(ontoURI + "hasWeatherCondition");
@@ -57,13 +58,15 @@ public class YrModel {
                 String windSpeedValueItem = this.windSpeedValue.get(i);
                 String weatherConditionItem = this.weatherName.get(i);
                 String dateItem = date.get(i);
+                String timeItem = observedAt.get(i);
 
-                Resource weatherData = model.createResource("http://example.com/weather#" + dateItem, weatherResource)
+                Resource weatherData = model.createResource("http://example.com/weatherAtDate#" + dateItem, weatherResource)
                         .addProperty(tempProperty, temperatureItem)
                         .addProperty(windSpeedProperty, windSpeedNameItem)
                         .addProperty(windSpeedValueProperty, windSpeedValueItem)
                         .addProperty(weatherProperty, weatherConditionItem)
-                        .addProperty(dateProperty, dateItem);
+                        .addProperty(dateProperty, dateItem)
+                        .addProperty(observedAtProperty, timeItem);
 
             }
         }
@@ -111,5 +114,6 @@ public class YrModel {
     public void setWindSpeedName(ArrayList<String> windSpeedName) {
         this.windSpeedName = windSpeedName;
     }
+
 
 }

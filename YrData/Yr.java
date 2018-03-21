@@ -30,6 +30,7 @@ public class Yr {
     private ArrayList<String> nametag = new ArrayList<String>();
     private ArrayList<String> nametagEng = new ArrayList<String>();
     private ArrayList<String> fromtag = new ArrayList<String>();
+    private ArrayList<String> observedTag = new ArrayList<>();
     private ArrayList<Integer> periodTag = new ArrayList<Integer>();
     private ArrayList<String> windSpeedName = new ArrayList<String>();
     private ArrayList<String> windSpeedValue = new ArrayList<>();
@@ -113,6 +114,7 @@ public class Yr {
 
             nametag.add(symbolElement.getAttribute("name"));
             fromtag.add(StringUtils.left(eElement.getAttribute("from"), 10));
+            observedTag.add(StringUtils.right(eElement.getAttribute("from"), 8));
             periodTag.add(Integer.parseInt(eElement.getAttribute("period")));
             temprature.add(tempElement.getAttribute("value"));
             windSpeedName.add(windTypeElement.getAttribute("name"));
@@ -248,7 +250,7 @@ public class Yr {
         return windSpeedValue;
     }
 
-    public ArrayList<String> getTimeTag() {
-        return timeTag;
+    public ArrayList<String> getObservedTag() {
+        return observedTag;
     }
 }

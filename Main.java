@@ -12,6 +12,10 @@ public class Main {
         model.writeToFile();
 
 
+        Yr yr = new Yr();
+
+        System.out.println(yr.getObservedTag());
+
 
     }
 }
