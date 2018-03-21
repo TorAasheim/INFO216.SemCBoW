@@ -39,13 +39,14 @@ public class YrModel {
     public void createModel(){
 
         String ontoURI = "https://www.auto.tuwien.ac.at/downloads/thinkhome/ontology/WeatherOntology.owl#";
+        String w3TimeResource = "http://www.w3.org/2006/time#inDateTime#";
 
         Property weatherProperty = model.createProperty(ontoURI + "WeatherCondition");
         Property tempProperty = model.createProperty(ontoURI + "Temperature");
         Property windSpeedProperty = model.createProperty(ontoURI + "Wind");
         Property windSpeedValueProperty = model.createProperty(ontoURI + "hasWind");
         Property observedAtProperty = model.createProperty(ontoURI + "hasObservationTime");
-        Property dateProperty = model.createProperty(ontoURI + "hasObservationTime");
+        Property dateProperty = model.createProperty(w3TimeResource + "hasDate");
 
         Resource weatherResource = model.createResource(ontoURI + "hasWeatherCondition");
 
@@ -60,7 +61,7 @@ public class YrModel {
                 String dateItem = date.get(i);
                 String timeItem = observedAt.get(i);
 
-                Resource weatherData = model.createResource("http://example.com/weatherAtDate#" + dateItem, weatherResource)
+                Resource weatherData = model.createResource("http://example.com/weatherAt#" + dateItem, weatherResource)
                         .addProperty(tempProperty, temperatureItem)
                         .addProperty(windSpeedProperty, windSpeedNameItem)
                         .addProperty(windSpeedValueProperty, windSpeedValueItem)
