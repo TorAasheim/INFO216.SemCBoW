@@ -46,7 +46,7 @@ public class Yr {
     }
 
     public void getWeatherAPI(){
-        System.out.println("Updating API..");
+        System.out.println("API checking for updates.. ");
 
         if (diff > 24 * 60 * 60 * 1000){
             try {
@@ -60,12 +60,12 @@ public class Yr {
                 System.out.println("Couldn't fint URL to API");
             }
         }else{
-            System.out.println("Already up to date.");
+            System.out.println("Updated");
         }
     }
 
     public void makeSymbolList(){
-        System.out.println("Building list from API");
+        System.out.println("Constructing list from API");
 
         DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
         DocumentBuilder dBuilder = null;
@@ -163,7 +163,7 @@ public class Yr {
 
 
         }
-        System.out.println("success");
+        System.out.println("All OK");
     }
 
     public ArrayList<String> getNametag() {

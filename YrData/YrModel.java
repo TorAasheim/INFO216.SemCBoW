@@ -39,35 +39,40 @@ public class YrModel {
     public void createModel(){
 
         String ontoURI = "https://www.auto.tuwien.ac.at/downloads/thinkhome/ontology/WeatherOntology.owl#";
-        String w3TimeResource = "http://www.w3.org/2006/time#inDateTime#";
+        model.setNsPrefix("wo", ontoURI);
 
-        Property weatherProperty = model.createProperty(ontoURI + "WeatherCondition");
+        String w3TimeResource = "http://www.w3.org/2006/time#";
+        model.setNsPrefix("w3time", w3TimeResource);
+
+
+        Property weatherProperty = model.createProperty(ontoURI + "hasWeatherCondition");
         Property tempProperty = model.createProperty(ontoURI + "Temperature");
         Property windSpeedProperty = model.createProperty(ontoURI + "Wind");
         Property windSpeedValueProperty = model.createProperty(ontoURI + "hasWind");
         Property observedAtProperty = model.createProperty(ontoURI + "hasObservationTime");
-        Property dateProperty = model.createProperty(w3TimeResource + "hasDate");
+        Property dateProperty = model.createProperty(w3TimeResource + "inDateTime");
 
-        Resource weatherResource = model.createResource(ontoURI + "hasWeatherCondition");
+        Resource weatherResource = model.createResource(ontoURI + "WeatherCondition");
 
 
         for (int i = 0; i < size; i++){
             // Sjekker at tidsrommet er mellom 12 - 18 eller 18 - 00
             if (period.contains(2) || period.contains(3)){
                 String temperatureItem = temp.get(i);
-                String windSpeedNameItem = this.windSpeedName.get(i);
-                String windSpeedValueItem = this.windSpeedValue.get(i);
-                String weatherConditionItem = this.weatherName.get(i);
+                String windSpeedNameItem = windSpeedName.get(i);
+                String windSpeedValueItem = windSpeedValue.get(i);
+                String weatherConditionItem = weatherName.get(i);
                 String dateItem = date.get(i);
                 String timeItem = observedAt.get(i);
 
-                Resource weatherData = model.createResource("http://example.com/weatherAt#" + dateItem, weatherResource)
+                Resource weatherData = model.createResource("http://example.com/weather#" + dateItem, weatherResource)
                         .addProperty(tempProperty, temperatureItem)
                         .addProperty(windSpeedProperty, windSpeedNameItem)
                         .addProperty(windSpeedValueProperty, windSpeedValueItem)
                         .addProperty(weatherProperty, weatherConditionItem)
                         .addProperty(dateProperty, dateItem)
                         .addProperty(observedAtProperty, timeItem);
+
 
             }
         }
@@ -77,7 +82,7 @@ public class YrModel {
        OntModel ontmodel = createOntologyModel(OntModelSpec.OWL_MEM, model);
 
         try {
-            ontmodel.write(new FileOutputStream("testModeldag.ttl"), "turtle");
+            ontmodel.write(new FileOutputStream("weatherModel.ttl"), "Turtle");
         } catch (IOException e) {
             e.printStackTrace();
         }
