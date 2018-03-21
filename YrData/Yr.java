@@ -40,6 +40,8 @@ public class Yr {
 
 
     public Yr(){
+        getWeatherAPI();
+        makeSymbolList();
     }
 
     public void getWeatherAPI(){

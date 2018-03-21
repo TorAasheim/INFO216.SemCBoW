@@ -20,7 +20,6 @@ public class YrModel {
     Model model = createDefaultModel();
 
     private ArrayList<String> temp = yr.getTemprature();
-    private ArrayList<String> windDirection = yr.getNametag();
     private ArrayList<String> windSpeedValue =  yr.getWindSpeedValue();
     private ArrayList<String> windSpeedName = yr.getWindSpeedName();
     private ArrayList<String> weatherName = yr.getNametag();
@@ -40,14 +39,14 @@ public class YrModel {
 
         String ontoURI = "https://www.auto.tuwien.ac.at/downloads/thinkhome/ontology/WeatherOntology.owl#";
 
-        Property weatherProperty = model.createProperty(ontoURI + weatherName);
-        Property tempProperty = model.createProperty(ontoURI + temp);
-        Property windSpeedProperty = model.createProperty(ontoURI + windSpeedName);
-        Property windSpeedValueProperty = model.createProperty(ontoURI + windSpeedValue);
-        Property windDirectionProperty = model.createProperty(ontoURI + windDirection);
-        Property dateProperty = model.createProperty(ontoURI + date);
+        Property weatherProperty = model.createProperty(ontoURI + "WeatherCondition");
+        Property tempProperty = model.createProperty(ontoURI + "Temperature");
+        Property windSpeedProperty = model.createProperty(ontoURI + "Wind");
+        Property windSpeedValueProperty = model.createProperty(ontoURI + "hasWind");
+        Property windDirectionProperty = model.createProperty(ontoURI + "hasDirection");
+        Property dateProperty = model.createProperty(ontoURI + "hasObservationTime");
 
-        Resource weatherResource = model.createResource(ontoURI + "weatherCondition");
+        Resource weatherResource = model.createResource(ontoURI + "hasWeatherCondition");
 
 
         for (int i = 0; i < size; i++){
@@ -57,24 +56,24 @@ public class YrModel {
                 String windSpeedNameItem = this.windSpeedName.get(i);
                 String windSpeedValueItem = this.windSpeedValue.get(i);
                 String weatherConditionItem = this.weatherName.get(i);
-                String windDirectionItem = this.windDirection.get(i);
                 String dateItem = date.get(i);
 
-                Resource weatherData = model.createResource("http://example.com/weather" + dateItem, weatherResource)
+                Resource weatherData = model.createResource("http://example.com/weather#" + dateItem, weatherResource)
                         .addProperty(tempProperty, temperatureItem)
                         .addProperty(windSpeedProperty, windSpeedNameItem)
                         .addProperty(windSpeedValueProperty, windSpeedValueItem)
                         .addProperty(weatherProperty, weatherConditionItem)
-                        .addProperty(windDirectionProperty, windDirectionItem);
+                        .addProperty(dateProperty, dateItem);
+
             }
         }
     }
 
     public void writeToFile() {
-       // OntModel ontmodel = createOntologyModel(OntModelSpec.OWL_MEM, model);
+       OntModel ontmodel = createOntologyModel(OntModelSpec.OWL_MEM, model);
 
         try {
-            model.write(new FileOutputStream("testModel.ttl"), "turtle");
+            ontmodel.write(new FileOutputStream("testModeldag.ttl"), "turtle");
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -95,15 +94,6 @@ public class YrModel {
 
     public void setTemp(ArrayList<String> temp) {
         this.temp = temp;
-    }
-
-
-    public ArrayList<String> getWindDirection() {
-        return windDirection;
-    }
-
-    public void setWindDirection(ArrayList<String> windDirection) {
-        this.windDirection = windDirection;
     }
 
     public ArrayList<String> getWindSpeedValue() {
