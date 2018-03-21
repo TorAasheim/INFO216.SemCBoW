@@ -1,14 +1,16 @@
+package YrData;
+
 import org.apache.jena.ontology.OntModel;
 import org.apache.jena.ontology.OntModelSpec;
 import org.apache.jena.rdf.model.Model;
 import org.apache.jena.rdf.model.Property;
 import org.apache.jena.rdf.model.Resource;
 
+import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 
-import static org.apache.jena.mem.HashCommon.NotifyEmpty.ignore;
 import static org.apache.jena.rdf.model.ModelFactory.createDefaultModel;
 import static org.apache.jena.rdf.model.ModelFactory.createOntologyModel;
 
@@ -68,25 +70,17 @@ public class YrModel {
         }
     }
 
-    public void writeToFile(){
-        OntModel ontmodel = createOntologyModel(OntModelSpec.OWL_MEM, model);
+    public void writeToFile() {
+       // OntModel ontmodel = createOntologyModel(OntModelSpec.OWL_MEM, model);
 
-        FileWriter file = null;
         try {
-            file = new FileWriter("weatherData.ttl");
-            ontmodel.write(file, "Turtle");
-        }catch (IOException e){
+            model.write(new FileOutputStream("testModel.ttl"), "turtle");
+        } catch (IOException e) {
             e.printStackTrace();
-        }finally {
-            if (file != null){
-                try{
-                    file.close();
-                }catch(IOException ignore){
-
-                }
-            }
         }
+
     }
+
 
     public Model parse(){
         createModel();

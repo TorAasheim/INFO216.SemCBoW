@@ -1,3 +1,5 @@
+package YrData;
+
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
@@ -102,7 +104,7 @@ public class Yr {
             Element tempElement = (Element) tempNode;
 
             Node windNode = eElement.getElementsByTagName("windSpeed").item(0);
-            Element windElement = (Element) windNode;
+            Element windTypeElement = (Element) windNode;
 
             Node windSpeedNode = eElement.getElementsByTagName("windSpeed").item(0);
             Element windspeedElement = (Element) windSpeedNode;
@@ -111,7 +113,7 @@ public class Yr {
             fromtag.add(StringUtils.left(eElement.getAttribute("from"), 10));
             periodTag.add(Integer.parseInt(eElement.getAttribute("period")));
             temprature.add(tempElement.getAttribute("value"));
-            windSpeedName.add(windElement.getAttribute("name"));
+            windSpeedName.add(windTypeElement.getAttribute("name"));
             windSpeedValue.add(windspeedElement.getAttribute("mps"));
             idList.add(1+i);
 

@@ -1,3 +1,6 @@
+import YrData.Yr;
+import YrData.YrModel;
+
 public class Main {
 
     public static void main(String[] args) {
@@ -27,6 +30,7 @@ public class Main {
         YrModel model = new YrModel();
         model.createModel();
         model.writeToFile();
+        System.out.println(yr.getIdList().size());
 
 
     }
