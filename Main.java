@@ -1,9 +1,5 @@
-import RDF.RDFController;
-import RDF.RDFReader;
-import YrData.Yr;
+import Clothing.ClothingData;
 import YrData.YrModel;
-import org.apache.jena.rdf.model.Model;
-import org.apache.jena.rdf.model.ModelFactory;
 
 public class Main {
 
@@ -13,14 +9,13 @@ public class Main {
         weatherModel.parse();
         weatherModel.writeToFile();
 
-        Model model = ModelFactory.createDefaultModel();
-        model.read("./ClothingOntology/semantic-clothing.ttl");
 
-        RDFController rdfc = new RDFController();
-        rdfc.addModel(model);
-        RDFReader rdfreader = new RDFReader(rdfc);
+        ClothingData cmodel = new ClothingData();
 
-        rdfreader.queryClothingClasses();
+        cmodel.liftJSON();
+        System.out.println(cmodel.getClothing());
+
+
 
 
     }
