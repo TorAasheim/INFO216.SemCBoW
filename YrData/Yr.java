@@ -27,16 +27,16 @@ public class Yr {
     public ArrayList<HashMap<String,String>> dataStruct = new ArrayList<HashMap<String, String>>();
     private File file = new File("varsel.xml");
     long diff = new Date().getTime() - file.lastModified();
-    private ArrayList<String> nametag = new ArrayList<String>();
-    private ArrayList<String> nametagEng = new ArrayList<String>();
-    private ArrayList<String> fromtag = new ArrayList<String>();
-    private ArrayList<String> observedTag = new ArrayList<>();
+    private ArrayList<String> weatherType = new ArrayList<String>();
+    private ArrayList<String> weatherTypeEng = new ArrayList<String>();
+    private ArrayList<String> dateObserved = new ArrayList<String>();
+    private ArrayList<String> timeObserved = new ArrayList<>();
     private ArrayList<Integer> periodTag = new ArrayList<Integer>();
-    private ArrayList<String> windSpeedName = new ArrayList<String>();
+    private ArrayList<String> windspeedType = new ArrayList<String>();
     private ArrayList<String> windSpeedValue = new ArrayList<>();
-    private ArrayList<String> temprature = new ArrayList<String>();
+    private ArrayList<String> temperature = new ArrayList<String>();
     private ArrayList<Integer> idList = new ArrayList<Integer>();
-    private ArrayList<String> timeTag = new ArrayList<>();
+
 
 
 
@@ -112,51 +112,51 @@ public class Yr {
             Node windSpeedNode = eElement.getElementsByTagName("windSpeed").item(0);
             Element windspeedElement = (Element) windSpeedNode;
 
-            nametag.add(symbolElement.getAttribute("name"));
-            fromtag.add(StringUtils.left(eElement.getAttribute("from"), 10));
-            observedTag.add(StringUtils.right(eElement.getAttribute("from"), 8));
+            weatherType.add(symbolElement.getAttribute("name"));
+            dateObserved.add(StringUtils.left(eElement.getAttribute("from"), 10));
+            timeObserved.add(StringUtils.right(eElement.getAttribute("from"), 8));
             periodTag.add(Integer.parseInt(eElement.getAttribute("period")));
-            temprature.add(tempElement.getAttribute("value"));
-            windSpeedName.add(windTypeElement.getAttribute("name"));
+            temperature.add(tempElement.getAttribute("value"));
+            windspeedType.add(windTypeElement.getAttribute("name"));
             windSpeedValue.add(windspeedElement.getAttribute("mps"));
             idList.add(1+i);
 
 
-            if (nametag.contains("Skyet")){
-                nametagEng.add("Cloud");
+            if (weatherType.contains("Skyet")){
+                weatherTypeEng.add("Cloud");
 
-            } else if (nametag.contains("Delvis skyet")){
-                nametagEng.add("PartlyCloud");
+            } else if (weatherType.contains("Delvis skyet")){
+                weatherTypeEng.add("PartlyCloud");
 
-            } else if (nametag.contains("Regn")){
-                nametagEng.add("Rain");
+            } else if (weatherType.contains("Regn")){
+                weatherTypeEng.add("Rain");
 
-            } else if (nametag.contains("Kraftig Regn")){
-                nametagEng.add("Rain");
+            } else if (weatherType.contains("Kraftig Regn")){
+                weatherTypeEng.add("Rain");
 
-            } else if (nametag.contains("Tåke")){
-                nametagEng.add("Fog");
+            } else if (weatherType.contains("Tåke")){
+                weatherTypeEng.add("Fog");
 
-            } else if (nametag.contains("Lett regn")){
-                nametagEng.add("Rain");
+            } else if (weatherType.contains("Lett regn")){
+                weatherTypeEng.add("Rain");
 
-            } else if (nametag.contains("Sol")){
-                nametagEng.add("Sun");
+            } else if (weatherType.contains("Sol")){
+                weatherTypeEng.add("Sun");
 
-            } else if (nametag.contains("Snø")){
-                nametagEng.add("Snow");
+            } else if (weatherType.contains("Snø")){
+                weatherTypeEng.add("Snow");
 
-            } else if (nametag.contains("Sludd")){
-                nametagEng.add("Sleet");
+            } else if (weatherType.contains("Sludd")){
+                weatherTypeEng.add("Sleet");
 
-            } else if (nametag.contains("Hagl")){
-                nametagEng.add("Hail");
+            } else if (weatherType.contains("Hagl")){
+                weatherTypeEng.add("Hail");
 
-            } else if (nametag.contains("Lyn")){
-                nametagEng.add("Thunder");
+            } else if (weatherType.contains("Lyn")){
+                weatherTypeEng.add("Thunder");
 
             } else {
-                nametagEng.add("Rain");
+                weatherTypeEng.add("Rain");
             }
 
 
@@ -167,7 +167,7 @@ public class Yr {
     }
 
     public ArrayList<String> getNametag() {
-        return nametag;
+        return weatherType;
     }
 
     /**
@@ -181,7 +181,7 @@ public class Yr {
      * @return
      */
     public ArrayList<String> getFromtag() {
-        return fromtag;
+        return dateObserved;
     }
 
     /**
@@ -191,7 +191,7 @@ public class Yr {
      * @return
      */
     public ArrayList<String> getWindSpeedName() {
-        return windSpeedName;
+        return windspeedType;
     }
 
     public ArrayList<Integer> getDateTime() {
@@ -216,7 +216,7 @@ public class Yr {
      * @return
      */
     public ArrayList<String> getTemprature() {
-        return temprature;
+        return temperature;
     }
 
     /**
@@ -243,7 +243,7 @@ public class Yr {
      * @return nametagEng - ArrayList<String>
      */
     public ArrayList<String> getNametagEng() {
-        return nametagEng;
+        return weatherTypeEng;
     }
 
     public ArrayList<String> getWindSpeedValue() {
@@ -251,6 +251,6 @@ public class Yr {
     }
 
     public ArrayList<String> getObservedTag() {
-        return observedTag;
+        return timeObserved;
     }
 }

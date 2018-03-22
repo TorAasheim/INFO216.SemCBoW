@@ -13,6 +13,7 @@ public class RDFController {
 
     public RDFController(){
         model = ModelFactory.createDefaultModel();
+
     }
 
     public void addModel(Model model){
@@ -20,8 +21,11 @@ public class RDFController {
     }
 
     public ResultSet runSparql(String queryString){
-        queryString = "PREFIX clo: <./Clothing Ontology/semantic-clothing.owl> " + queryString;
-        queryString = "PREFIX we: <https://www.auto.tuwien.ac.at/downloads/thinkhome/ontology/WeatherOntology.owl#>" + queryString;
+        queryString = "PREFIX clo: <./ClothingOntology/semantic-clothing.owl> " + queryString;
+        queryString = "PREFIX wo: <https://www.auto.tuwien.ac.at/downloads/thinkhome/ontology/WeatherOntology.owl#>" + queryString;
+        queryString = "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>" + queryString;
+        queryString = "PREFIX dbr: <http://dbpedia.org/resource/>" + queryString;
+
 
         Query query = null;
        try {
