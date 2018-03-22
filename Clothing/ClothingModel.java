@@ -2,10 +2,7 @@ package Clothing;
 
 import org.apache.jena.ontology.OntModel;
 import org.apache.jena.ontology.OntModelSpec;
-import org.apache.jena.rdf.model.Model;
-import org.apache.jena.rdf.model.ModelFactory;
-import org.apache.jena.rdf.model.Property;
-import org.apache.jena.rdf.model.Resource;
+import org.apache.jena.rdf.model.*;
 
 import java.io.FileOutputStream;
 import java.util.ArrayList;
@@ -16,6 +13,7 @@ public class ClothingModel {
 
     ClothingData data = new ClothingData();
     Model clothingModel = ModelFactory.createDefaultModel();
+    InfModel rdfsModel = ModelFactory.createRDFSModel(clothingModel);
 
     private ArrayList<String> clothingType = data.getClothing();
     private int size = data.getClothing().size();
@@ -29,20 +27,22 @@ public class ClothingModel {
         String dbrClothes = "http://dbpedia.org/resource/clothes";
         clothingModel.setNsPrefix("dbr", dbrClothes);
 
-        Resource clothingResource = clothingModel.createResource(dbrClothes + "Garments");
-        Property clothingProperty = clothingModel.createProperty(semClothURI + "isClothingType");
+
+        Resource clothingResource = rdfsModel.createResource(dbrClothes + "Clothing");
+        Property clothingProperty = rdfsModel.createProperty(semClothURI + "isClothingType");
 
         for (int i = 0; i < this.size; i++){
             String clothingItem = clothingType.get(i);
 
-            Resource clothingData = clothingModel.createResource("http://example.com/Clothing#" + clothingItem, clothingResource)
+            Resource clothingData = rdfsModel.createResource("http://example.com/Clothing#" + clothingItem, clothingResource)
                     .addProperty(clothingProperty, clothingItem);
+
         }
     }
 
     public void writeFile(){
 
-        OntModel clothingOntModel = createOntologyModel(OntModelSpec.OWL_MEM, clothingModel);
+        OntModel clothingOntModel = createOntologyModel(OntModelSpec.OWL_MEM, rdfsModel);
 
         try{
             clothingOntModel.write(new FileOutputStream("Clothing.ttl"), "Turtle");
