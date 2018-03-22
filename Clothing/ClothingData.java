@@ -14,6 +14,10 @@ public class ClothingData {
     private ArrayList<String> clothing = new ArrayList<>();
 
 
+    public ClothingData(){
+        JSONFileScraper();
+    }
+
     @SuppressWarnings("unchecked")
     public void JSONFileScraper(){
 
@@ -21,16 +25,14 @@ public class ClothingData {
 
         try {
 
-            Object obj = parser.parse(new FileReader("/Users/Mats/IdeaProjects/INFO216.SemCBOW/src/Misc/objects/clothing.json"));
+            Object obj = parser.parse(new FileReader("/Users/Mats/IdeaProjects/INFO216.SemCBOW/src/Misc/clothing.json"));
 
             JSONObject jsonObject = (JSONObject) obj;
-            String description = (String) jsonObject.get("description");
             JSONArray clothingList = (JSONArray) jsonObject.get("clothes");
 
             Iterator<String> itr = clothingList.iterator();
             while(itr.hasNext()){
                 clothing.add(itr.next());
-
             }
 
         }catch(Exception e){

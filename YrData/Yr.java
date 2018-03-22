@@ -46,7 +46,7 @@ public class Yr {
     }
 
     public void getWeatherAPI(){
-        System.out.println("API checking for updates.. ");
+        System.out.println("YR API checking for updates.. ");
 
         if (diff > 24 * 60 * 60 * 1000){
             try {
