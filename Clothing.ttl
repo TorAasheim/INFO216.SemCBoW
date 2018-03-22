@@ -1,0 +1,366 @@
+@prefix dbr:   <http://dbpedia.org/resource/clothes> .
+@prefix owl:   <http://www.w3.org/2002/07/owl#> .
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix clo:   <http://www.semanticweb.org/ontologies/2015/02/semcloth.owl#> .
+@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+
+<http://example.com/Clothing#t-shirt>
+        a                   dbr:Garments ;
+        clo:isClothingType  "t-shirt" .
+
+<http://example.com/Clothing#nightgown>
+        a                   dbr:Garments ;
+        clo:isClothingType  "nightgown" .
+
+<http://example.com/Clothing#sandals>
+        a                   dbr:Garments ;
+        clo:isClothingType  "sandals" .
+
+<http://example.com/Clothing#swimwear>
+        a                   dbr:Garments ;
+        clo:isClothingType  "swimwear" .
+
+<http://example.com/Clothing#raincoat>
+        a                   dbr:Garments ;
+        clo:isClothingType  "raincoat" .
+
+<http://example.com/Clothing#cummerbund>
+        a                   dbr:Garments ;
+        clo:isClothingType  "cummerbund" .
+
+<http://example.com/Clothing#zip>
+        a                   dbr:Garments ;
+        clo:isClothingType  "zip" .
+
+<http://example.com/Clothing#knickers>
+        a                   dbr:Garments ;
+        clo:isClothingType  "knickers" .
+
+<http://example.com/Clothing#swimming trunks>
+        a                   dbr:Garments ;
+        clo:isClothingType  "swimming trunks" .
+
+<http://example.com/Clothing#shawl>
+        a                   dbr:Garments ;
+        clo:isClothingType  "shawl" .
+
+<http://example.com/Clothing#boots>
+        a                   dbr:Garments ;
+        clo:isClothingType  "boots" .
+
+<http://example.com/Clothing#tracksuit>
+        a                   dbr:Garments ;
+        clo:isClothingType  "tracksuit" .
+
+<http://example.com/Clothing#underclothes>
+        a                   dbr:Garments ;
+        clo:isClothingType  "underclothes" .
+
+<http://example.com/Clothing#ball gown>
+        a                   dbr:Garments ;
+        clo:isClothingType  "ball gown" .
+
+<http://example.com/Clothing#belt>
+        a                   dbr:Garments ;
+        clo:isClothingType  "belt" .
+
+<http://example.com/Clothing#boxers>
+        a                   dbr:Garments ;
+        clo:isClothingType  "boxers" .
+
+<http://example.com/Clothing#bra & knicker set>
+        a                   dbr:Garments ;
+        clo:isClothingType  "bra & knicker set" .
+
+<http://example.com/Clothing#tie>
+        a                   dbr:Garments ;
+        clo:isClothingType  "tie" .
+
+<http://example.com/Clothing#sweatshirt>
+        a                   dbr:Garments ;
+        clo:isClothingType  "sweatshirt" .
+
+<http://example.com/Clothing#shellsuit>
+        a                   dbr:Garments ;
+        clo:isClothingType  "shellsuit" .
+
+<http://example.com/Clothing#cargos>
+        a                   dbr:Garments ;
+        clo:isClothingType  "cargos" .
+
+<http://example.com/Clothing#tights>
+        a                   dbr:Garments ;
+        clo:isClothingType  "tights" .
+
+<http://example.com/Clothing#briefs>
+        a                   dbr:Garments ;
+        clo:isClothingType  "briefs" .
+
+<http://example.com/Clothing#catsuit>
+        a                   dbr:Garments ;
+        clo:isClothingType  "catsuit" .
+
+<http://example.com/Clothing#corset>
+        a                   dbr:Garments ;
+        clo:isClothingType  "corset" .
+
+<http://example.com/Clothing#jacket>
+        a                   dbr:Garments ;
+        clo:isClothingType  "jacket" .
+
+<http://example.com/Clothing#swimming shorts>
+        a                   dbr:Garments ;
+        clo:isClothingType  "swimming shorts" .
+
+<http://example.com/Clothing#hoody>
+        a                   dbr:Garments ;
+        clo:isClothingType  "hoody" .
+
+<http://example.com/Clothing#kilt>
+        a                   dbr:Garments ;
+        clo:isClothingType  "kilt" .
+
+<http://example.com/Clothing#vest>
+        a                   dbr:Garments ;
+        clo:isClothingType  "vest" .
+
+<http://example.com/Clothing#jeans>
+        a                   dbr:Garments ;
+        clo:isClothingType  "jeans" .
+
+<http://example.com/Clothing#suit>
+        a                   dbr:Garments ;
+        clo:isClothingType  "suit" .
+
+<http://example.com/Clothing#romper>
+        a                   dbr:Garments ;
+        clo:isClothingType  "romper" .
+
+<http://example.com/Clothing#sunglasses>
+        a                   dbr:Garments ;
+        clo:isClothingType  "sunglasses" .
+
+<http://example.com/Clothing#skirt>
+        a                   dbr:Garments ;
+        clo:isClothingType  "skirt" .
+
+<http://example.com/Clothing#waistcoat>
+        a                   dbr:Garments ;
+        clo:isClothingType  "waistcoat" .
+
+<http://example.com/Clothing#tankini>
+        a                   dbr:Garments ;
+        clo:isClothingType  "tankini" .
+
+<http://example.com/Clothing#underwear>
+        a                   dbr:Garments ;
+        clo:isClothingType  "underwear" .
+
+<http://example.com/Clothing#trousers>
+        a                   dbr:Garments ;
+        clo:isClothingType  "trousers" .
+
+<http://example.com/Clothing#socks>
+        a                   dbr:Garments ;
+        clo:isClothingType  "socks" .
+
+<http://example.com/Clothing#robe>
+        a                   dbr:Garments ;
+        clo:isClothingType  "robe" .
+
+<http://example.com/Clothing#kurta>
+        a                   dbr:Garments ;
+        clo:isClothingType  "kurta" .
+
+<http://example.com/Clothing#bra>
+        a                   dbr:Garments ;
+        clo:isClothingType  "bra" .
+
+<http://example.com/Clothing#cap>
+        a                   dbr:Garments ;
+        clo:isClothingType  "cap" .
+
+<http://example.com/Clothing#dress>
+        a                   dbr:Garments ;
+        clo:isClothingType  "dress" .
+
+<http://example.com/Clothing#shoes>
+        a                   dbr:Garments ;
+        clo:isClothingType  "shoes" .
+
+<http://example.com/Clothing#baby grow>
+        a                   dbr:Garments ;
+        clo:isClothingType  "baby grow" .
+
+<http://example.com/Clothing#top>
+        a                   dbr:Garments ;
+        clo:isClothingType  "top" .
+
+<http://example.com/Clothing#tailcoat>
+        a                   dbr:Garments ;
+        clo:isClothingType  "tailcoat" .
+
+<http://example.com/Clothing#pants>
+        a                   dbr:Garments ;
+        clo:isClothingType  "pants" .
+
+<http://example.com/Clothing#stockings>
+        a                   dbr:Garments ;
+        clo:isClothingType  "stockings" .
+
+<http://example.com/Clothing#polo shirt>
+        a                   dbr:Garments ;
+        clo:isClothingType  "polo shirt" .
+
+<http://example.com/Clothing#cravat>
+        a                   dbr:Garments ;
+        clo:isClothingType  "cravat" .
+
+<http://example.com/Clothing#waterproof>
+        a                   dbr:Garments ;
+        clo:isClothingType  "waterproof" .
+
+<http://example.com/Clothing#dungarees>
+        a                   dbr:Garments ;
+        clo:isClothingType  "dungarees" .
+
+<http://example.com/Clothing#fleece>
+        a                   dbr:Garments ;
+        clo:isClothingType  "fleece" .
+
+<http://example.com/Clothing#hat>
+        a                   dbr:Garments ;
+        clo:isClothingType  "hat" .
+
+<http://example.com/Clothing#blouse>
+        a                   dbr:Garments ;
+        clo:isClothingType  "blouse" .
+
+<http://example.com/Clothing#lingerie>
+        a                   dbr:Garments ;
+        clo:isClothingType  "lingerie" .
+
+<http://example.com/Clothing#thong>
+        a                   dbr:Garments ;
+        clo:isClothingType  "thong" .
+
+<http://example.com/Clothing#cufflinks>
+        a                   dbr:Garments ;
+        clo:isClothingType  "cufflinks" .
+
+<http://example.com/Clothing#jumper>
+        a                   dbr:Garments ;
+        clo:isClothingType  "jumper" .
+
+<http://example.com/Clothing#shirt>
+        a                   dbr:Garments ;
+        clo:isClothingType  "shirt" .
+
+<http://example.com/Clothing#kaftan>
+        a                   dbr:Garments ;
+        clo:isClothingType  "kaftan" .
+
+<http://example.com/Clothing#pyjamas>
+        a                   dbr:Garments ;
+        clo:isClothingType  "pyjamas" .
+
+<http://example.com/Clothing#poncho>
+        a                   dbr:Garments ;
+        clo:isClothingType  "poncho" .
+
+<http://example.com/Clothing#underpants>
+        a                   dbr:Garments ;
+        clo:isClothingType  "underpants" .
+
+<http://example.com/Clothing#cardigan>
+        a                   dbr:Garments ;
+        clo:isClothingType  "cardigan" .
+
+<http://example.com/Clothing#gloves>
+        a                   dbr:Garments ;
+        clo:isClothingType  "gloves" .
+
+<http://example.com/Clothing#dressing gown>
+        a                   dbr:Garments ;
+        clo:isClothingType  "dressing gown" .
+
+<http://example.com/Clothing#dinner jacket>
+        a                   dbr:Garments ;
+        clo:isClothingType  "dinner jacket" .
+
+<http://example.com/Clothing#sarong>
+        a                   dbr:Garments ;
+        clo:isClothingType  "sarong" .
+
+<http://example.com/Clothing#blazer>
+        a                   dbr:Garments ;
+        clo:isClothingType  "blazer" .
+
+<http://example.com/Clothing#sweater>
+        a                   dbr:Garments ;
+        clo:isClothingType  "sweater" .
+
+<http://example.com/Clothing#camisole>
+        a                   dbr:Garments ;
+        clo:isClothingType  "camisole" .
+
+<http://example.com/Clothing#bikini>
+        a                   dbr:Garments ;
+        clo:isClothingType  "bikini" .
+
+<http://example.com/Clothing#undershirt>
+        a                   dbr:Garments ;
+        clo:isClothingType  "undershirt" .
+
+<http://example.com/Clothing#nightwear>
+        a                   dbr:Garments ;
+        clo:isClothingType  "nightwear" .
+
+<http://example.com/Clothing#bow tie>
+        a                   dbr:Garments ;
+        clo:isClothingType  "bow tie" .
+
+<http://example.com/Clothing#slippers>
+        a                   dbr:Garments ;
+        clo:isClothingType  "slippers" .
+
+<http://example.com/Clothing#jogging suit>
+        a                   dbr:Garments ;
+        clo:isClothingType  "jogging suit" .
+
+<http://example.com/Clothing#vest underwear>
+        a                   dbr:Garments ;
+        clo:isClothingType  "vest underwear" .
+
+<http://example.com/Clothing#trainers>
+        a                   dbr:Garments ;
+        clo:isClothingType  "trainers" .
+
+<http://example.com/Clothing#coat>
+        a                   dbr:Garments ;
+        clo:isClothingType  "coat" .
+
+<http://example.com/Clothing#slacks>
+        a                   dbr:Garments ;
+        clo:isClothingType  "slacks" .
+
+<http://example.com/Clothing#chemise>
+        a                   dbr:Garments ;
+        clo:isClothingType  "chemise" .
+
+<http://example.com/Clothing#swimming costume>
+        a                   dbr:Garments ;
+        clo:isClothingType  "swimming costume" .
+
+<http://example.com/Clothing#shorts>
+        a                   dbr:Garments ;
+        clo:isClothingType  "shorts" .
+
+<http://example.com/Clothing#pashmina>
+        a                   dbr:Garments ;
+        clo:isClothingType  "pashmina" .
+
+<http://example.com/Clothing#scarf>
+        a                   dbr:Garments ;
+        clo:isClothingType  "scarf" .
