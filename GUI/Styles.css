@@ -1,0 +1,11 @@
+#welcomeText{
+    -fx-font-size: 30;
+    -fx-font-family: sans-serif;
+    -webkit-fx-color: #f4d142;
+    -moz-fx-color: #f4d142;
+    -ms-fx-color: #f4d142;
+    -o-fx-color: #f4d142;
+    -khtml-fx-color: #f4d142;
+    fx-color: #f4d142;
+    -fx-font-weight: 100;
+}

@@ -3,6 +3,7 @@ package Clothing;
 import org.apache.jena.ontology.OntModel;
 import org.apache.jena.ontology.OntModelSpec;
 import org.apache.jena.rdf.model.*;
+import org.apache.jena.vocabulary.RDFS;
 
 import java.io.FileOutputStream;
 import java.util.ArrayList;
@@ -29,13 +30,21 @@ public class ClothingModel {
 
 
         Resource clothingResource = rdfsModel.createResource(dbrClothes + "Clothing");
+        Property womensClothingResource = rdfsModel.createProperty(semClothURI + "Women's clothing");
         Property clothingProperty = rdfsModel.createProperty(semClothURI + "isClothingType");
 
         for (int i = 0; i < this.size; i++){
             String clothingItem = clothingType.get(i);
 
+
             Resource clothingData = rdfsModel.createResource("http://example.com/Clothing#" + clothingItem, clothingResource)
                     .addProperty(clothingProperty, clothingItem);
+
+
+            if (clothingType.get(i).equals("bra") || clothingType.get(i).equals("ball gown")){
+                womensClothingResource.addProperty(RDFS.subClassOf, clothingResource);
+                clothingData.addProperty(womensClothingResource, clothingItem);
+            }
 
         }
     }
