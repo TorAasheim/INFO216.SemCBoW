@@ -18,8 +18,9 @@ public class Main {
         clothingModel.writeFile();
 
 
-
-
+        /*
+        Git test
+         */
 
 
 
